@@ -15,7 +15,7 @@ export class AuthController {
   ){}
 
   @Post('register')
-  async registerUser(@Body() user: Usuario, @Req() req) {
+  async registerUser(@Body() user: Usuario) {
     const userWithHash = user
     const saltOrRounds = 12;
     userWithHash.password = await bcrypt.hash(userWithHash.password, saltOrRounds);
